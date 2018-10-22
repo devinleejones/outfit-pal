@@ -1,35 +1,13 @@
 {
-  "lon": null,
-  "city_name": null,
-  "data": [
+  "Weather": [
     {
-      "wind_cdir": null,
-      "rh": null,
-      "wind_spd": null,
-      "pop": null,
-      "wind_cdir_full": null,
-      "app_temp": null,
-      "pres": null,
-      "dewpt": null,
-      "snow": null,
-      "uv": null,
-      "wind_dir": null,
-      "weather": {
-        "icon": null,
-        "code": null,
-        "description": null
-      },
-      "precip": null,
-      "ts": null,
-      "datetime": null,
-      "temp": null,
-      "slp": null,
-      "clouds": null,
-      "vis": null
+      "id": 1,
+      "name": null,
+      "description": null,
+      "date": null,
+      "lodging": null,
+      "activities": null,
+      "todos": []
     }
-  ],
-  "timezone": null,
-  "lat": null,
-  "country_code": null,
-  "state_code": null
+  ]
 }
