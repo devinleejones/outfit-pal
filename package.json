@@ -36,6 +36,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/preset-react": "7.0.0",
+    "babel-loader": "8.0.4",
+    "copy-webpack-plugin": "4.5.3",
     "eslint": "5.3.0",
     "eslint-config-standard": "11.0.0",
     "eslint-plugin-import": "2.13.0",
@@ -46,13 +50,9 @@
     "htmlhint": "0.9.13",
     "husky": "1.0.0-rc.13",
     "lint-staged": "7.2.2",
+    "npm-run-all": "4.1.3",
     "stylelint": "9.4.0",
     "stylelint-config-standard": "18.2.0",
-    "@babel/core": "7.1.2",
-    "@babel/preset-react": "7.0.0",
-    "babel-loader": "8.0.4",
-    "copy-webpack-plugin": "4.5.3",
-    "npm-run-all": "4.1.3",
     "webpack": "4.20.2",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.9"
@@ -60,10 +60,13 @@
   "dependencies": {
     "@material-ui/core": "^3.3.0",
     "@material-ui/icons": "^3.0.1",
+    "css-loader": "^1.0.0",
     "dotenv": "^6.1.0",
     "json-server": "^0.14.0",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "typeface-raleway": "0.0.54",
+    "unirest": "^0.5.1"
   },
   "bugs": {
     "url": "https://github.com/devinleejones/outfit-pal/issues"
