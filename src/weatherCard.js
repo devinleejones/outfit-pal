@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
@@ -23,34 +23,46 @@ const styles = {
     position: 'absolute',
     bottom: '1rem',
     right: '1rem'
-  },
-  icon: {
-    position: 'absolute',
-    bottom: '2.5rem',
-    right: '4rem'
   }
 }
 
-function WeatherCard(props) {
-  const { classes } = props
-  const { day } = props
-  console.log(day)
-  return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography className={classes.title}>
-          {fecha.format(new Date(day.date), 'dddd MMMM Do, YYYY')}
-        </Typography>
-        <div className={classes.box} />
-        <Typography className={classes.condition} component="p">
-          {day.condition}
-          <br />
-          {day.temperature + '°F'}
-        </Typography>
-        <i className="fas fa-cloud" style={styles.icon} />
-      </CardContent>
-    </Card>
-  )
+class WeatherCard extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+    this.handleIcon = this.handleIcon.bind(this)
+  }
+  handleIcon() {
+    const { condition } = this.props.day
+    switch (condition) {
+      case 'Clear':
+        return 'fas fa-sun'
+      case 'Clouds':
+        return 'fas fa-cloud'
+      case 'Rain':
+        return 'fas fa-umbrella'
+    }
+  }
+  render() {
+    const { classes } = this.props
+    const { day } = this.props
+    const { handleIcon } = this
+    return (
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography className={classes.title}>
+            {fecha.format(new Date(day.date), 'dddd MMMM Do, YYYY')}
+          </Typography>
+          <div className={classes.box} />
+          <Typography className={classes.condition} component="p">
+            <i className={handleIcon()} /> {day.condition}
+            <br />
+            {day.temperature + '°F'}
+          </Typography>
+        </CardContent>
+      </Card>
+    )
+  }
 }
 
 WeatherCard.propTypes = {
