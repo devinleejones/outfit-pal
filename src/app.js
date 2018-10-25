@@ -5,10 +5,12 @@ import Closet from './closet'
 
 const styles = {
   header: {
-    fontFamily: 'Raleway, sans-serif'
+    fontFamily: 'Raleway, sans-serif',
+    marginTop: '4rem'
   },
   title: {
-    fontSize: '48px'
+    fontSize: '48px',
+    color: 'white'
   }
 }
 
@@ -16,7 +18,7 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      weather: []
+      days: []
     }
   }
 
@@ -26,22 +28,54 @@ export default class App extends Component {
     )
       .then(result => result.json())
       .then(data => {
-        this.setState({ weather: data })
-        console.log(this.state.weather.list[0].main)
+        this.setState(
+          {
+            days: [
+              {
+                condition: data.list[0].weather[0].main,
+                temperature: data.list[0].main.temp,
+                date: data.list[0].dt_txt
+              },
+              {
+                condition: data.list[7].weather[0].main,
+                temperature: data.list[7].main.temp,
+                date: data.list[7].dt_txt
+              },
+              {
+                condition: data.list[15].weather[0].main,
+                temperature: data.list[15].main.temp,
+                date: data.list[15].dt_txt
+              },
+              {
+                condition: data.list[23].weather[0].main,
+                temperature: data.list[23].main.temp,
+                date: data.list[23].dt_txt
+              },
+              {
+                condition: data.list[31].weather[0].main,
+                temperature: data.list[31].main.temp,
+                date: data.list[31].dt_txt
+              }
+            ]
+          },
+          () => console.log(this.state.days)
+        )
       })
   }
 
   render() {
-    const { weather } = this.state
+    const { days } = this.state
     return (
-      <div className="container-fluid">
-        <h1 style={styles.title}>OutfitPal</h1>
+      <div>
+        <nav className="navbar navbar-dark bg-dark">
+          <h1 style={styles.title}>OutfitPal</h1>
+        </nav>
         <Grid container justify="center">
           <Typography style={styles.header} variant="h3">
             {"This Week's Closet"}
           </Typography>
         </Grid>
-        <Closet weather={weather} />
+        <Closet days={days} />
       </div>
     )
   }

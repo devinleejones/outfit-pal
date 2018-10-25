@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
+import fecha from 'fecha'
 
 const styles = {
   card: {
@@ -32,15 +33,19 @@ const styles = {
 
 function WeatherCard(props) {
   const { classes } = props
+  const { day } = props
+  console.log(day)
   return (
     <Card className={classes.card}>
       <CardContent>
-        <Typography className={classes.title}>{"Monday's Fit"}</Typography>
+        <Typography className={classes.title}>
+          {fecha.format(new Date(day.date), 'dddd MMMM Do, YYYY')}
+        </Typography>
         <div className={classes.box} />
         <Typography className={classes.condition} component="p">
-          Cloudy
+          {day.condition}
           <br />
-          {'74°F'}
+          {day.temperature + '°F'}
         </Typography>
         <i className="fas fa-cloud" style={styles.icon} />
       </CardContent>
