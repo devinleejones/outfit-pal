@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import WeatherCard from './weatherCard'
+import Typography from '@material-ui/core/Typography'
 
 const styles = {
   container: {
@@ -12,6 +13,10 @@ const styles = {
     height: '100%',
     display: 'flex',
     justifyContent: 'space-between'
+  },
+  header: {
+    fontFamily: 'Lora, serif',
+    marginTop: '4rem'
   }
 }
 
@@ -19,13 +24,16 @@ export default class Home extends Component {
   render() {
     const { days } = this.props
     return (
-      <div className="mt-4" style={styles.container}>
-        <div className="mt-4" style={styles.box}>
-          {days.map((day, index) => {
-            return <WeatherCard key={index} day={day} />
-          })}
+      <Typography className="text-center" style={styles.header} variant="h3">
+        {"This Week's Closet"}
+        <div className="mt-4" style={styles.container}>
+          <div className="mt-4" style={styles.box}>
+            {days.map((day, index) => {
+              return <WeatherCard key={index} day={day} />
+            })}
+          </div>
         </div>
-      </div>
+      </Typography>
     )
   }
 }

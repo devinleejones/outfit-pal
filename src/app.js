@@ -1,17 +1,8 @@
-import React, { Component } from 'react'
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
+import React, { Component, Fragment } from 'react'
 import Home from './home'
 import hash from './hash'
 import Navbar from './navBar'
 import AddClothingArticle from './addClothingArticle'
-
-const styles = {
-  header: {
-    fontFamily: 'Lora, serif',
-    marginTop: '4rem'
-  }
-}
 
 export default class App extends Component {
   constructor(props) {
@@ -19,7 +10,7 @@ export default class App extends Component {
     const { path } = hash.parse(location.hash)
     this.state = {
       days: [],
-      view: path
+      view: { path }
     }
   }
 
@@ -29,6 +20,10 @@ export default class App extends Component {
     switch (path) {
       default:
         return <Home days={days} />
+      case 'home':
+        return <Home days={days} />
+      case 'add':
+        return <AddClothingArticle />
     }
   }
 
@@ -36,7 +31,7 @@ export default class App extends Component {
     window.addEventListener('hashchange', () => {
       const { path } = hash.parse(location.hash)
       this.setState({
-        view: path
+        view: { path }
       })
     })
     fetch(
@@ -78,16 +73,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Navbar />
-        <Grid container justify="center">
-          <Typography style={styles.header} variant="h3">
-            {"This Week's Closet"}
-          </Typography>
-        </Grid>
         {this.renderView()}
-        {<AddClothingArticle />}
-      </div>
+      </Fragment>
     )
   }
 }
