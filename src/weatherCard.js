@@ -10,7 +10,8 @@ const styles = {
   card: {
     position: 'relative',
     maxWidth: 400,
-    height: '25vw'
+    height: '25vw',
+    border: 'solid black'
   },
   title: {
     fontSize: 24,

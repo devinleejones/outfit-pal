@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 
 const styles = {
   card: {
@@ -77,6 +77,10 @@ export default class AddClothingArticle extends Component {
                 <option>Orange</option>
                 <option>Purple</option>
               </Input>
+            </FormGroup>
+            <FormGroup>
+              <Input type="file" name="file" id="exampleFile" />
+              <FormText color="muted" />
             </FormGroup>
             <Button className="btn btn-dark">Add</Button>
           </Form>

@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Home from './home'
 import hash from './hash'
+import AddClothingArticle from './addClothingArticle'
 
 const styles = {
   header: {
@@ -90,6 +91,7 @@ export default class App extends Component {
           </Typography>
         </Grid>
         {this.renderView()}
+        {<AddClothingArticle />}
       </div>
     )
   }
