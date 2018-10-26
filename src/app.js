@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import Closet from './closet'
+import Home from './home'
 import hash from './hash'
 
 const styles = {
@@ -22,6 +22,15 @@ export default class App extends Component {
     this.state = {
       days: [],
       view: path
+    }
+  }
+
+  renderView() {
+    const { path } = this.state.view
+    const { days } = this.state
+    switch (path) {
+      default:
+        return <Home days={days} />
     }
   }
 
@@ -70,7 +79,6 @@ export default class App extends Component {
   }
 
   render() {
-    const { days } = this.state
     return (
       <div>
         <nav className="navbar navbar-dark bg-dark">
@@ -81,7 +89,7 @@ export default class App extends Component {
             {"This Week's Closet"}
           </Typography>
         </Grid>
-        <Closet days={days} />
+        {this.renderView()}
       </div>
     )
   }

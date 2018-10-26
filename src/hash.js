@@ -1,4 +1,4 @@
-import queryString from './query-string'
+import queryString from './queryString'
 const hash = {
   parse(string) {
     const [path, query] = string.split('?')
