@@ -5,11 +5,11 @@ import Closet from './closet'
 
 const styles = {
   header: {
-    fontFamily: 'Raleway, sans-serif',
+    fontFamily: 'Lora, serif',
     marginTop: '4rem'
   },
   title: {
-    fontSize: '48px',
+    fontSize: '42px',
     color: 'white'
   }
 }
@@ -28,38 +28,35 @@ export default class App extends Component {
     )
       .then(result => result.json())
       .then(data => {
-        this.setState(
-          {
-            days: [
-              {
-                condition: data.list[0].weather[0].main,
-                temperature: data.list[0].main.temp,
-                date: data.list[0].dt_txt
-              },
-              {
-                condition: data.list[7].weather[0].main,
-                temperature: data.list[7].main.temp,
-                date: data.list[7].dt_txt
-              },
-              {
-                condition: data.list[15].weather[0].main,
-                temperature: data.list[15].main.temp,
-                date: data.list[15].dt_txt
-              },
-              {
-                condition: data.list[23].weather[0].main,
-                temperature: data.list[23].main.temp,
-                date: data.list[23].dt_txt
-              },
-              {
-                condition: data.list[31].weather[0].main,
-                temperature: data.list[31].main.temp,
-                date: data.list[31].dt_txt
-              }
-            ]
-          },
-          () => console.log(this.state.days)
-        )
+        this.setState({
+          days: [
+            {
+              condition: data.list[0].weather[0].main,
+              temperature: data.list[0].main.temp,
+              date: data.list[0].dt_txt
+            },
+            {
+              condition: data.list[7].weather[0].main,
+              temperature: data.list[7].main.temp,
+              date: data.list[7].dt_txt
+            },
+            {
+              condition: data.list[15].weather[0].main,
+              temperature: data.list[15].main.temp,
+              date: data.list[15].dt_txt
+            },
+            {
+              condition: data.list[23].weather[0].main,
+              temperature: data.list[23].main.temp,
+              date: data.list[23].dt_txt
+            },
+            {
+              condition: data.list[31].weather[0].main,
+              temperature: data.list[31].main.temp,
+              date: data.list[31].dt_txt
+            }
+          ]
+        })
       })
   }
 
