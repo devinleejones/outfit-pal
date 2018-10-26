@@ -3,16 +3,13 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Home from './home'
 import hash from './hash'
+import Navbar from './navBar'
 import AddClothingArticle from './addClothingArticle'
 
 const styles = {
   header: {
     fontFamily: 'Lora, serif',
     marginTop: '4rem'
-  },
-  title: {
-    fontSize: '42px',
-    color: 'white'
   }
 }
 
@@ -82,9 +79,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-dark bg-dark">
-          <h1 style={styles.title}>OutfitPal</h1>
-        </nav>
+        <Navbar />
         <Grid container justify="center">
           <Typography style={styles.header} variant="h3">
             {"This Week's Closet"}
