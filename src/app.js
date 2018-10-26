@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Closet from './closet'
+import hash from './hash'
 
 const styles = {
   header: {
@@ -17,12 +18,20 @@ const styles = {
 export default class App extends Component {
   constructor(props) {
     super(props)
+    const { path } = hash.parse(location.hash)
     this.state = {
-      days: []
+      days: [],
+      view: path
     }
   }
 
   componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      const { path } = hash.parse(location.hash)
+      this.setState({
+        view: path
+      })
+    })
     fetch(
       'http://api.openweathermap.org/data/2.5/forecast?zip=92618&units=imperial&appid=d073dfb1703b47ce33c493182f9cacb9'
     )
