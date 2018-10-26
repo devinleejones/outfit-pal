@@ -5,7 +5,7 @@ const styles = {
   container: {
     height: '100%',
     width: '100%',
-    overflowX: 'auto'
+    overflowX: 'scroll'
   },
   box: {
     width: 2000,
