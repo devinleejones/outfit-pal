@@ -10,20 +10,43 @@ export default class App extends Component {
     const { path } = hash.parse(location.hash)
     this.state = {
       days: [],
-      view: { path }
+      view: { path },
+      clothing: []
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    const form = new FormData(event.target)
+    this.setState({
+      clothing: [
+        {
+          name: form.get('name'),
+          brand: form.get('brand'),
+          type: form.get('type'),
+          color: form.get('color'),
+          file: form.get('file')
+        },
+        ...this.state.clothing
+      ]
+    })
+    console.log(this.state.clothing)
+    event.target.reset()
+    location.hash = 'add'
   }
 
   renderView() {
     const { path } = this.state.view
     const { days } = this.state
+    const { handleSubmit } = this
     switch (path) {
       default:
         return <Home days={days} />
       case 'home':
         return <Home days={days} />
       case 'add':
-        return <AddClothingArticle />
+        return <AddClothingArticle handleSubmit={handleSubmit} />
     }
   }
 
