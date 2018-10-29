@@ -1,28 +1,58 @@
-import React, { Component } from 'react'
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
-import Closet from './closet'
-
-const styles = {
-  header: {
-    fontFamily: 'Lora, serif',
-    marginTop: '4rem'
-  },
-  title: {
-    fontSize: '42px',
-    color: 'white'
-  }
-}
+import React, { Component, Fragment } from 'react'
+import Home from './home'
+import hash from './hash'
+import Navbar from './navBar'
+import AddClothingArticle from './addClothingArticle'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
+    const { path } = hash.parse(location.hash)
     this.state = {
-      days: []
+      days: [],
+      view: { path },
+      clothing: []
+    }
+    this.addClothingArticle = this.addClothingArticle.bind(this)
+  }
+
+  addClothingArticle(clothing) {
+    fetch('http://localhost:3000/clothing', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(clothing)
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ clothing: [...this.state.clothing, data] })
+      })
+      .catch(err => console.log(err))
+  }
+
+  renderView() {
+    const { path } = this.state.view
+    const { days } = this.state
+    const { addClothingArticle } = this
+    switch (path) {
+      default:
+        return <Home days={days} />
+      case 'home':
+        return <Home days={days} />
+      case 'add':
+        return <AddClothingArticle addClothingArticle={addClothingArticle} />
     }
   }
 
   componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      const { path } = hash.parse(location.hash)
+      this.setState({
+        view: { path }
+      })
+    })
     fetch(
       'http://api.openweathermap.org/data/2.5/forecast?zip=92618&units=imperial&appid=d073dfb1703b47ce33c493182f9cacb9'
     )
@@ -61,19 +91,11 @@ export default class App extends Component {
   }
 
   render() {
-    const { days } = this.state
     return (
-      <div>
-        <nav className="navbar navbar-dark bg-dark">
-          <h1 style={styles.title}>OutfitPal</h1>
-        </nav>
-        <Grid container justify="center">
-          <Typography style={styles.header} variant="h3">
-            {"This Week's Closet"}
-          </Typography>
-        </Grid>
-        <Closet days={days} />
-      </div>
+      <Fragment>
+        <Navbar />
+        {this.renderView()}
+      </Fragment>
     )
   }
 }
