@@ -1,13 +1,12 @@
 {
-  "Weather": [
+  "clothing": [
     {
-      "id": 1,
-      "name": null,
-      "description": null,
-      "date": null,
-      "lodging": null,
-      "activities": null,
-      "todos": []
+      "name": "Hooded Villian",
+      "brand": "John Elliot Co",
+      "type": "Jacket/Coat",
+      "color": "Black",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/HOODED_VILLAIN_BLACK_FLAT_500x.jpg?v=1532469700",
+      "id": 1
     }
   ]
 }

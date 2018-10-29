@@ -13,40 +13,36 @@ export default class App extends Component {
       view: { path },
       clothing: []
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.addClothingArticle = this.addClothingArticle.bind(this)
   }
 
-  handleSubmit(event) {
-    event.preventDefault()
-    const form = new FormData(event.target)
-    this.setState({
-      clothing: [
-        {
-          name: form.get('name'),
-          brand: form.get('brand'),
-          type: form.get('type'),
-          color: form.get('color'),
-          file: form.get('file')
-        },
-        ...this.state.clothing
-      ]
+  addClothingArticle(clothing) {
+    fetch('http://localhost:3000/clothing', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(clothing)
     })
-    console.log(this.state.clothing)
-    event.target.reset()
-    location.hash = 'add'
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ clothing: [...this.state.clothing, data] })
+      })
+      .catch(err => console.log(err))
   }
 
   renderView() {
     const { path } = this.state.view
     const { days } = this.state
-    const { handleSubmit } = this
+    const { addClothingArticle } = this
     switch (path) {
       default:
         return <Home days={days} />
       case 'home':
         return <Home days={days} />
       case 'add':
-        return <AddClothingArticle handleSubmit={handleSubmit} />
+        return <AddClothingArticle addClothingArticle={addClothingArticle} />
     }
   }
 

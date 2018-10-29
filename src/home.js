@@ -16,7 +16,8 @@ const styles = {
   },
   header: {
     fontFamily: 'Lora, serif',
-    marginTop: '4rem'
+    marginTop: '4rem',
+    marginBottom: '4rem'
   }
 }
 
