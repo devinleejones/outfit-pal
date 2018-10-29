@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles'
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
 import GridListTileBar from '@material-ui/core/GridListTileBar'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 import imageData from './imageData'
 
 const styles = theme => ({
@@ -27,26 +29,39 @@ const styles = theme => ({
   }
 })
 
+const style = {
+  card: {
+    fontFamily: 'Lora, serif',
+    marginTop: '4rem',
+    marginBottom: '4rem'
+  }
+}
+
 function Closet(props) {
   const { classes } = props
 
   return (
-    <div className={classes.root}>
-      <GridList className={classes.gridList} cellHeight={600} cols={4.5}>
-        {imageData.map(image => (
-          <GridListTile key={image.img}>
-            <img src={image.img} alt={image.title} />
-            <GridListTileBar
-              title={image.title}
-              classes={{
-                root: classes.titleBar,
-                title: classes.title
-              }}
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
+    <Card style={style.card} className="container-fluid">
+      <CardContent>
+        <h1 className="text-center mb-4 mt-2">My Closet</h1>
+        <div className={classes.root}>
+          <GridList className={classes.gridList} cellHeight={600} cols={4.5}>
+            {imageData.map(image => (
+              <GridListTile key={image.img}>
+                <img src={image.img} alt={image.title} />
+                <GridListTileBar
+                  title={image.title}
+                  classes={{
+                    root: classes.titleBar,
+                    title: classes.title
+                  }}
+                />
+              </GridListTile>
+            ))}
+          </GridList>
+        </div>
+      </CardContent>
+    </Card>
   )
 }
 

@@ -3,6 +3,7 @@ import Home from './home'
 import hash from './hash'
 import Navbar from './navBar'
 import AddClothingArticle from './addClothingArticle'
+import Closet from './closet'
 
 export default class App extends Component {
   constructor(props) {
@@ -38,11 +39,17 @@ export default class App extends Component {
     const { addClothingArticle } = this
     switch (path) {
       default:
-        return <Home days={days} />
+        return (
+          <Fragment>
+            <Home days={days} />
+          </Fragment>
+        )
       case 'home':
         return <Home days={days} />
       case 'add':
         return <AddClothingArticle addClothingArticle={addClothingArticle} />
+      case 'closet':
+        return <Closet />
     }
   }
 
