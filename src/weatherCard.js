@@ -8,9 +8,10 @@ import fecha from 'fecha'
 
 const styles = {
   card: {
+    fontFamily: 'Montserrat, sans-serif',
     position: 'relative',
     maxWidth: 400,
-    height: '25vw'
+    height: '40vw'
   },
   title: {
     fontSize: 24,

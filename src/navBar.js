@@ -2,17 +2,25 @@ import React from 'react'
 
 const styles = {
   title: {
-    fontFamily: 'Lora, serif',
+    fontFamily: 'Montserrat, sans-serif',
     fontSize: '42px',
     color: 'white'
   },
   add: {
-    fontFamily: 'Lora, serif',
+    fontFamily: 'Montserrat, sans-serif',
     fontSize: '18px',
     color: 'white',
     position: 'absolute',
-    bottom: '2rem',
+    bottom: '1.75rem',
     right: '1rem'
+  },
+  closet: {
+    fontFamily: 'Montserrat, sans-serif',
+    fontSize: '18px',
+    color: 'white',
+    position: 'absolute',
+    bottom: '1.75rem',
+    right: '10rem'
   }
 }
 
@@ -25,6 +33,9 @@ export default function Navbar() {
         </a>
         <a style={styles.add} className="nav-item nav-link" href="#add">
           Add to Closet <span className="sr-only">(current)</span>
+        </a>
+        <a style={styles.closet} className="nav-item nav-link" href="#closet">
+          My Closet <span className="sr-only">(current)</span>
         </a>
       </div>
     </nav>

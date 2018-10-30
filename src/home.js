@@ -15,7 +15,7 @@ const styles = {
     justifyContent: 'space-between'
   },
   header: {
-    fontFamily: 'Lora, serif',
+    fontFamily: 'Montserrat, sans-serif',
     marginTop: '4rem',
     marginBottom: '4rem'
   }

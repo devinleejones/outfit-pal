@@ -3,6 +3,7 @@ import Home from './home'
 import hash from './hash'
 import Navbar from './navBar'
 import AddClothingArticle from './addClothingArticle'
+import Closet from './closet'
 
 export default class App extends Component {
   constructor(props) {
@@ -34,19 +35,28 @@ export default class App extends Component {
 
   renderView() {
     const { path } = this.state.view
-    const { days } = this.state
+    const { days, clothing } = this.state
     const { addClothingArticle } = this
     switch (path) {
       default:
-        return <Home days={days} />
+        return (
+          <Fragment>
+            <Home days={days} />
+          </Fragment>
+        )
       case 'home':
         return <Home days={days} />
       case 'add':
         return <AddClothingArticle addClothingArticle={addClothingArticle} />
+      case 'closet':
+        return <Closet clothing={clothing} />
     }
   }
 
   componentDidMount() {
+    fetch('http://localhost:3000/clothing')
+      .then(res => res.json())
+      .then(clothing => this.setState({ clothing }))
     window.addEventListener('hashchange', () => {
       const { path } = hash.parse(location.hash)
       this.setState({

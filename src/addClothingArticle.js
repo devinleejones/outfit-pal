@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 const styles = {
   card: {
-    fontFamily: 'Lora, serif',
+    fontFamily: 'Montserrat, sans-serif',
     width: '50%',
     marginTop: '4rem',
     marginBottom: '4rem'
