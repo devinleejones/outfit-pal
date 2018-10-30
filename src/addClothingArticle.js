@@ -25,7 +25,8 @@ export default class AddClothingArticle extends Component {
       brand: form.get('brand'),
       type: form.get('type'),
       color: form.get('color'),
-      image: form.get('image')
+      image: form.get('image'),
+      weather: form.get('weather')
     }
     this.props.addClothingArticle(clothing)
     event.target.reset()
@@ -85,7 +86,7 @@ export default class AddClothingArticle extends Component {
               </Input>
             </FormGroup>
             <FormGroup>
-              <Label for="exampleImage">Image URL</Label>
+              <Label for="inputImage">Image URL</Label>
               <Input
                 type="text"
                 name="image"
@@ -95,12 +96,11 @@ export default class AddClothingArticle extends Component {
             </FormGroup>
             <FormGroup>
               <Label for="exampleWeather">Weather Type</Label>
-              <Input
-                type="text"
-                name="weather"
-                id="exampleWeather"
-                placeholder="Input Weather Type"
-              />
+              <Input type="select" name="weather" id="exampleSelect">
+                <option>Clear</option>
+                <option>Clouds</option>
+                <option>Rain</option>
+              </Input>
             </FormGroup>
             <Button className="btn btn-dark">Add</Button>
           </Form>
