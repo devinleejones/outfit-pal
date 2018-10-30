@@ -35,7 +35,7 @@ export default class App extends Component {
 
   renderView() {
     const { path } = this.state.view
-    const { days } = this.state
+    const { days, clothing } = this.state
     const { addClothingArticle } = this
     switch (path) {
       default:
@@ -49,11 +49,14 @@ export default class App extends Component {
       case 'add':
         return <AddClothingArticle addClothingArticle={addClothingArticle} />
       case 'closet':
-        return <Closet />
+        return <Closet clothing={clothing} />
     }
   }
 
   componentDidMount() {
+    fetch('http://localhost:3000/clothing')
+      .then(res => res.json())
+      .then(clothing => this.setState({ clothing }))
     window.addEventListener('hashchange', () => {
       const { path } = hash.parse(location.hash)
       this.setState({

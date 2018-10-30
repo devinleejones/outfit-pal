@@ -2,12 +2,12 @@ import React from 'react'
 
 const styles = {
   title: {
-    fontFamily: 'Lora, serif',
+    fontFamily: 'Montserrat, sans-serif',
     fontSize: '42px',
     color: 'white'
   },
   add: {
-    fontFamily: 'Lora, serif',
+    fontFamily: 'Montserrat, sans-serif',
     fontSize: '18px',
     color: 'white',
     position: 'absolute',
@@ -15,7 +15,7 @@ const styles = {
     right: '1rem'
   },
   closet: {
-    fontFamily: 'Lora, serif',
+    fontFamily: 'Montserrat, sans-serif',
     fontSize: '18px',
     color: 'white',
     position: 'absolute',
