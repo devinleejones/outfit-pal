@@ -25,7 +25,8 @@ export default class AddClothingArticle extends Component {
       brand: form.get('brand'),
       type: form.get('type'),
       color: form.get('color'),
-      image: form.get('image')
+      image: form.get('image'),
+      weatherType: form.get('weatherType')
     }
     this.props.addClothingArticle(clothing)
     event.target.reset()
@@ -39,26 +40,26 @@ export default class AddClothingArticle extends Component {
           <Form onSubmit={handleSubmit}>
             <h1>Add a Clothing Article</h1>
             <FormGroup className="mt-4">
-              <Label for="exampleName">Name</Label>
+              <Label for="inputName">Name</Label>
               <Input
                 type="text"
                 name="name"
-                id="exampleEmail"
+                id="name"
                 placeholder="Input Name"
               />
             </FormGroup>
             <FormGroup>
-              <Label for="exampleBrand">Brand</Label>
+              <Label for="inputBrand">Brand</Label>
               <Input
                 type="text"
                 name="brand"
-                id="exampleEmail"
+                id="brand"
                 placeholder="Input Brand"
               />
             </FormGroup>
             <FormGroup>
-              <Label for="exampleType">Type</Label>
-              <Input type="select" name="type" id="exampleSelect">
+              <Label for="inputType">Type</Label>
+              <Input type="select" name="type" id="type">
                 <option>Hat</option>
                 <option>Jacket/Coat</option>
                 <option>Top</option>
@@ -69,8 +70,8 @@ export default class AddClothingArticle extends Component {
               </Input>
             </FormGroup>
             <FormGroup>
-              <Label for="exampleColor">Color</Label>
-              <Input type="select" name="color" id="exampleSelect">
+              <Label for="inputColor">Color</Label>
+              <Input type="select" name="color" id="color">
                 <option>Black</option>
                 <option>White</option>
                 <option>Grey</option>
@@ -85,13 +86,21 @@ export default class AddClothingArticle extends Component {
               </Input>
             </FormGroup>
             <FormGroup>
-              <Label for="exampleImage">Image URL</Label>
+              <Label for="inputImage">Image URL</Label>
               <Input
                 type="text"
                 name="image"
-                id="exampleImage"
+                id="image"
                 placeholder="Input Image URL"
               />
+            </FormGroup>
+            <FormGroup>
+              <Label for="inputWeather">Weather Type</Label>
+              <Input type="select" name="weatherType" id="weather">
+                <option>Clear</option>
+                <option>Clouds</option>
+                <option>Rain</option>
+              </Input>
             </FormGroup>
             <Button className="btn btn-dark">Add</Button>
           </Form>
