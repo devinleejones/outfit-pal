@@ -93,6 +93,15 @@ export default class AddClothingArticle extends Component {
                 placeholder="Input Image URL"
               />
             </FormGroup>
+            <FormGroup>
+              <Label for="exampleWeather">Weather Type</Label>
+              <Input
+                type="text"
+                name="weather"
+                id="exampleWeather"
+                placeholder="Input Weather Type"
+              />
+            </FormGroup>
             <Button className="btn btn-dark">Add</Button>
           </Form>
         </CardContent>
