@@ -63,6 +63,15 @@
       "color": "Blue",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/STRAIGHT_HEM_BUTTON_UP_GREEN_NAVY_05_1000x.jpg?v=1535689114,jpg,?v=1535689114",
       "id": 8
+    },
+    {
+      "name": "Herring Bone Top Coat",
+      "brand": "John Elliot Co",
+      "type": "Jacket/Coat",
+      "color": "Grey",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/WOOL_TOPCOAT_HERRINGBONE_05_1000x.jpg?v=1539046322,jpg,?v=1539046322",
+      "weatherType": "Rain",
+      "id": 9
     }
   ]
 }
