@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import WeatherCard from './weatherCard'
 import Typography from '@material-ui/core/Typography'
+window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
 const styles = {
   container: {

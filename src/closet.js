@@ -6,6 +6,10 @@ import GridListTile from '@material-ui/core/GridListTile'
 import GridListTileBar from '@material-ui/core/GridListTileBar'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
+import Button from '@material-ui/core/Button'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state'
 
 const styles = theme => ({
   root: {
@@ -33,6 +37,15 @@ const style = {
     fontFamily: 'Montserrat, sans-serif',
     marginTop: '4rem',
     marginBottom: '4rem'
+  },
+  carousel: {
+    marginTop: '2rem',
+    marginBottom: '2rem'
+  },
+  h1: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 }
 
@@ -43,8 +56,89 @@ function Closet(props) {
   return (
     <Card style={style.card} className="container-fluid">
       <CardContent>
-        <h1 className="text-center mb-4 mt-2">My Closet</h1>
-        <div className={classes.root}>
+        <h1 style={style.h1} className="text-center mb-4 mt-2">
+          My Closet
+        </h1>
+        <div>
+          <PopupState variant="popover" popupId="demo-popup-menu">
+            {popupState => (
+              <React.Fragment>
+                <Button
+                  color="inherit"
+                  variant="contained"
+                  {...bindTrigger(popupState)}>
+                  Brand
+                </Button>
+                <Menu {...bindMenu(popupState)}>
+                  <MenuItem onClick={popupState.close}>John Elliot</MenuItem>
+                </Menu>
+              </React.Fragment>
+            )}
+          </PopupState>
+          <PopupState variant="popover" popupId="demo-popup-menu">
+            {popupState => (
+              <React.Fragment>
+                <Button
+                  color="inherit"
+                  variant="contained"
+                  {...bindTrigger(popupState)}>
+                  Type
+                </Button>
+                <Menu {...bindMenu(popupState)}>
+                  <MenuItem onClick={popupState.close}>Hat</MenuItem>
+                  <MenuItem onClick={popupState.close}>Jacket/Coat</MenuItem>
+                  <MenuItem onClick={popupState.close}>Top</MenuItem>
+                  <MenuItem onClick={popupState.close}>Bottom</MenuItem>
+                  <MenuItem onClick={popupState.close}>Shoes</MenuItem>
+                  <MenuItem onClick={popupState.close}>Jewelry</MenuItem>
+                  <MenuItem onClick={popupState.close}>Accessories</MenuItem>
+                </Menu>
+              </React.Fragment>
+            )}
+          </PopupState>
+          <PopupState variant="popover" popupId="demo-popup-menu">
+            {popupState => (
+              <React.Fragment>
+                <Button
+                  color="inherit"
+                  variant="contained"
+                  {...bindTrigger(popupState)}>
+                  Color
+                </Button>
+                <Menu {...bindMenu(popupState)}>
+                  <MenuItem onClick={popupState.close}>Black</MenuItem>
+                  <MenuItem onClick={popupState.close}>White</MenuItem>
+                  <MenuItem onClick={popupState.close}>Grey</MenuItem>
+                  <MenuItem onClick={popupState.close}>Brown</MenuItem>
+                  <MenuItem onClick={popupState.close}>Floral</MenuItem>
+                  <MenuItem onClick={popupState.close}>Red</MenuItem>
+                  <MenuItem onClick={popupState.close}>Blue</MenuItem>
+                  <MenuItem onClick={popupState.close}>Yellow</MenuItem>
+                  <MenuItem onClick={popupState.close}>Orange</MenuItem>
+                  <MenuItem onClick={popupState.close}>Purple</MenuItem>
+                </Menu>
+              </React.Fragment>
+            )}
+          </PopupState>
+          <PopupState variant="popover" popupId="demo-popup-menu">
+            {popupState => (
+              <React.Fragment>
+                <Button
+                  color="inherit"
+                  variant="contained"
+                  {...bindTrigger(popupState)}>
+                  Weather
+                </Button>
+                <Menu {...bindMenu(popupState)}>
+                  <MenuItem onClick={popupState.close}>Clear</MenuItem>
+                  <MenuItem onClick={popupState.close}>Clouds</MenuItem>
+                  <MenuItem onClick={popupState.close}>Rain</MenuItem>
+                </Menu>
+              </React.Fragment>
+            )}
+          </PopupState>
+        </div>
+        <Card style={style.carousel} className="container-fluid">
           <GridList className={classes.gridList} cellHeight={600} cols={4.5}>
             {clothing.map(image => (
               <GridListTile key={image.image}>
@@ -59,7 +153,7 @@ function Closet(props) {
               </GridListTile>
             ))}
           </GridList>
-        </div>
+        </Card>
       </CardContent>
     </Card>
   )

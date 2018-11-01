@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import fecha from 'fecha'
+window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
 const styles = {
   card: {
