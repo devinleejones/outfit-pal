@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import WeatherCard from './weatherCard'
 import Typography from '@material-ui/core/Typography'
+import Card from '@material-ui/core/Card'
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
 const styles = {
@@ -8,6 +9,10 @@ const styles = {
     height: '100%',
     width: '100%',
     overflowX: 'scroll'
+  },
+  card: {
+    marginTop: '4rem',
+    marginBottom: '4rem'
   },
   box: {
     width: 2000,
@@ -26,16 +31,18 @@ export default class Home extends Component {
   render() {
     const { days } = this.props
     return (
-      <Typography className="text-center" style={styles.header} variant="h3">
-        {"This Week's Closet"}
-        <div className="mt-4" style={styles.container}>
-          <div className="mt-4" style={styles.box}>
-            {days.map((day, index) => {
-              return <WeatherCard key={index} day={day} />
-            })}
+      <Card style={styles.card} className="container-fluid">
+        <Typography className="text-center" style={styles.header} variant="h3">
+          {"This Week's Closet"}
+          <div className="mt-4" style={styles.container}>
+            <div className="mt-4" style={styles.box}>
+              {days.map((day, index) => {
+                return <WeatherCard key={index} day={day} />
+              })}
+            </div>
           </div>
-        </div>
-      </Typography>
+        </Typography>
+      </Card>
     )
   }
 }

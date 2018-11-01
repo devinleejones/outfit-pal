@@ -12,9 +12,6 @@ const styles = {
     color: 'white',
     justifyContent: 'right',
     alignItems: 'right'
-    // position: 'absolute',
-    // bottom: '1.75rem',
-    // right: '1rem'
   },
   closet: {
     fontFamily: 'Montserrat, sans-serif',
@@ -22,9 +19,6 @@ const styles = {
     color: 'white',
     justifyContent: 'right',
     alignItems: 'right'
-    // position: 'absolute',
-    // bottom: '1.75rem',
-    // right: '10rem'
   }
 }
 
