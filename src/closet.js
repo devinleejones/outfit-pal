@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import GridList from '@material-ui/core/GridList'
@@ -49,114 +49,306 @@ const style = {
   }
 }
 
-function Closet(props) {
-  const { classes } = props
-  const { clothing } = props
+class Closet extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      filterBy: {
+        property: '',
+        value: ''
+      }
+    }
+    this.filterClothingArticleBy = this.filterClothingArticleBy.bind(this)
+  }
 
-  return (
-    <Card style={style.card} className="container-fluid">
-      <CardContent>
-        <h1 style={style.h1} className="text-center mb-4 mt-2">
-          My Closet
-        </h1>
-        <div>
-          <PopupState variant="popover" popupId="demo-popup-menu">
-            {popupState => (
-              <React.Fragment>
-                <Button
-                  color="inherit"
-                  variant="contained"
-                  {...bindTrigger(popupState)}>
-                  Brand
-                </Button>
-                <Menu {...bindMenu(popupState)}>
-                  <MenuItem onClick={popupState.close}>John Elliot</MenuItem>
-                </Menu>
-              </React.Fragment>
-            )}
-          </PopupState>
-          <PopupState variant="popover" popupId="demo-popup-menu">
-            {popupState => (
-              <React.Fragment>
-                <Button
-                  color="inherit"
-                  variant="contained"
-                  {...bindTrigger(popupState)}>
-                  Type
-                </Button>
-                <Menu {...bindMenu(popupState)}>
-                  <MenuItem onClick={popupState.close}>Hat</MenuItem>
-                  <MenuItem onClick={popupState.close}>Jacket/Coat</MenuItem>
-                  <MenuItem onClick={popupState.close}>Top</MenuItem>
-                  <MenuItem onClick={popupState.close}>Bottom</MenuItem>
-                  <MenuItem onClick={popupState.close}>Shoes</MenuItem>
-                  <MenuItem onClick={popupState.close}>Jewelry</MenuItem>
-                  <MenuItem onClick={popupState.close}>Accessories</MenuItem>
-                </Menu>
-              </React.Fragment>
-            )}
-          </PopupState>
-          <PopupState variant="popover" popupId="demo-popup-menu">
-            {popupState => (
-              <React.Fragment>
-                <Button
-                  color="inherit"
-                  variant="contained"
-                  {...bindTrigger(popupState)}>
-                  Color
-                </Button>
-                <Menu {...bindMenu(popupState)}>
-                  <MenuItem onClick={popupState.close}>Black</MenuItem>
-                  <MenuItem onClick={popupState.close}>White</MenuItem>
-                  <MenuItem onClick={popupState.close}>Grey</MenuItem>
-                  <MenuItem onClick={popupState.close}>Brown</MenuItem>
-                  <MenuItem onClick={popupState.close}>Floral</MenuItem>
-                  <MenuItem onClick={popupState.close}>Red</MenuItem>
-                  <MenuItem onClick={popupState.close}>Blue</MenuItem>
-                  <MenuItem onClick={popupState.close}>Yellow</MenuItem>
-                  <MenuItem onClick={popupState.close}>Orange</MenuItem>
-                  <MenuItem onClick={popupState.close}>Purple</MenuItem>
-                </Menu>
-              </React.Fragment>
-            )}
-          </PopupState>
-          <PopupState variant="popover" popupId="demo-popup-menu">
-            {popupState => (
-              <React.Fragment>
-                <Button
-                  color="inherit"
-                  variant="contained"
-                  {...bindTrigger(popupState)}>
-                  Weather
-                </Button>
-                <Menu {...bindMenu(popupState)}>
-                  <MenuItem onClick={popupState.close}>Clear</MenuItem>
-                  <MenuItem onClick={popupState.close}>Clouds</MenuItem>
-                  <MenuItem onClick={popupState.close}>Rain</MenuItem>
-                </Menu>
-              </React.Fragment>
-            )}
-          </PopupState>
-        </div>
-        <Card style={style.carousel} className="container-fluid">
-          <GridList className={classes.gridList} cellHeight={600} cols={4.5}>
-            {clothing.map(image => (
-              <GridListTile key={image.image}>
-                <img src={image.image} alt={image.name} />
-                <GridListTileBar
-                  title={image.name}
-                  classes={{
-                    root: classes.titleBar,
-                    title: classes.title
-                  }}
-                />
-              </GridListTile>
-            ))}
-          </GridList>
-        </Card>
-      </CardContent>
-    </Card>
-  )
+  filterClothingArticleBy(event) {
+    const value = event.target.getAttribute('value')
+    const property = event.target.getAttribute('property')
+    this.setState({ filterBy: { value, property } })
+  }
+
+  render() {
+    console.log(this.state.filterBy)
+    const { classes } = this.props
+    const clothing = this.props.clothing.filter(article => {
+      if (!this.state.filterBy.property) {
+        return article
+      }
+      return article[this.state.filterBy.property] === this.state.filterBy.value
+    })
+    return (
+      <Card style={style.card} className="container-fluid">
+        <CardContent>
+          <h1 style={style.h1} className="text-center mb-4 mt-2">
+            My Closet
+          </h1>
+          <div>
+            <PopupState variant="popover" popupId="demo-popup-menu">
+              {popupState => (
+                <React.Fragment>
+                  <Button
+                    color="inherit"
+                    variant="contained"
+                    {...bindTrigger(popupState)}>
+                    Brand
+                  </Button>
+                  <Menu {...bindMenu(popupState)}>
+                    <MenuItem
+                      property="brand"
+                      value="John Elliot Co"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      John Elliot
+                    </MenuItem>
+                  </Menu>
+                </React.Fragment>
+              )}
+            </PopupState>
+            <PopupState variant="popover" popupId="demo-popup-menu">
+              {popupState => (
+                <React.Fragment>
+                  <Button
+                    color="inherit"
+                    variant="contained"
+                    {...bindTrigger(popupState)}>
+                    Type
+                  </Button>
+                  <Menu {...bindMenu(popupState)}>
+                    <MenuItem
+                      property="type"
+                      value="hat"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Hat
+                    </MenuItem>
+                    <MenuItem
+                      property="type"
+                      value="jacket/coat"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Jacket/Coat
+                    </MenuItem>
+                    <MenuItem
+                      property="type"
+                      value="top"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Top
+                    </MenuItem>
+                    <MenuItem
+                      property="type"
+                      value="bottom"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Bottom
+                    </MenuItem>
+                    <MenuItem
+                      property="type"
+                      value="shoes"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Shoes
+                    </MenuItem>
+                    <MenuItem
+                      property="type"
+                      value="jewelry"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Jewelry
+                    </MenuItem>
+                    <MenuItem
+                      property="type"
+                      value="accessories"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Accessories
+                    </MenuItem>
+                  </Menu>
+                </React.Fragment>
+              )}
+            </PopupState>
+            <PopupState variant="popover" popupId="demo-popup-menu">
+              {popupState => (
+                <React.Fragment>
+                  <Button
+                    color="inherit"
+                    variant="contained"
+                    {...bindTrigger(popupState)}>
+                    Color
+                  </Button>
+                  <Menu {...bindMenu(popupState)}>
+                    <MenuItem
+                      property="color"
+                      value="black"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Black
+                    </MenuItem>
+                    <MenuItem
+                      property="color"
+                      value="white"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      White
+                    </MenuItem>
+                    <MenuItem
+                      property="color"
+                      value="grey"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Grey
+                    </MenuItem>
+                    <MenuItem
+                      property="color"
+                      value="brown"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Brown
+                    </MenuItem>
+                    <MenuItem
+                      property="color"
+                      value="floral"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Floral
+                    </MenuItem>
+                    <MenuItem
+                      property="color"
+                      value="red"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Red
+                    </MenuItem>
+                    <MenuItem
+                      property="color"
+                      value="blue"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Blue
+                    </MenuItem>
+                    <MenuItem
+                      property="color"
+                      value="yellow"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Yellow
+                    </MenuItem>
+                    <MenuItem
+                      property="color"
+                      value="orange"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Orange
+                    </MenuItem>
+                    <MenuItem
+                      property="color"
+                      value="purple"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Purple
+                    </MenuItem>
+                  </Menu>
+                </React.Fragment>
+              )}
+            </PopupState>
+            <PopupState variant="popover" popupId="demo-popup-menu">
+              {popupState => (
+                <React.Fragment>
+                  <Button
+                    color="inherit"
+                    variant="contained"
+                    {...bindTrigger(popupState)}>
+                    Weather
+                  </Button>
+                  <Menu {...bindMenu(popupState)}>
+                    <MenuItem
+                      property="weatherType"
+                      value="clear"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Clear
+                    </MenuItem>
+                    <MenuItem
+                      property="weatherType"
+                      value="clouds"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Clouds
+                    </MenuItem>
+                    <MenuItem
+                      property="weatherType"
+                      value="rain"
+                      onClick={event => {
+                        popupState.close()
+                        this.filterClothingArticleBy(event)
+                      }}>
+                      Rain
+                    </MenuItem>
+                  </Menu>
+                </React.Fragment>
+              )}
+            </PopupState>
+          </div>
+          <Card style={style.carousel} className="container-fluid">
+            <GridList className={classes.gridList} cellHeight={600} cols={4.5}>
+              {clothing.map((image, index) => (
+                <GridListTile key={index}>
+                  <img src={image.image} alt={image.name} />
+                  <GridListTileBar
+                    title={image.name}
+                    classes={{
+                      root: classes.titleBar,
+                      title: classes.title
+                    }}
+                  />
+                </GridListTile>
+              ))}
+            </GridList>
+          </Card>
+        </CardContent>
+      </Card>
+    )
+  }
 }
 
 Closet.propTypes = {
