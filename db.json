@@ -3,74 +3,74 @@
     {
       "name": "Hooded Villian",
       "brand": "John Elliot Co",
-      "type": "Jacket/Coat",
-      "color": "Black",
+      "type": "jacket/coat",
+      "color": "black",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/HOODED_VILLAIN_BLACK_05_1000x.jpg?v=1532469700,jpg,?v=1532469700",
       "id": 1
     },
     {
       "name": "Thumper Jacket",
       "brand": "John Elliot Co",
-      "type": "Jacket/Coat",
-      "color": "Blue",
+      "type": "jacket/coat",
+      "color": "blue",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THUMPER_JACKET_TYPE_III_INDIGO_05_1000x.jpg?v=1533942005,jpg,?v=1533942005",
       "id": 2
     },
     {
       "name": "Anti Expo Tee ",
       "brand": "John Elliot Co",
-      "type": "Top",
-      "color": "Grey",
+      "type": "top",
+      "color": "grey",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/ANTI_EXPO_TEE_GREY_CROP_1000x.jpg?v=1532468528,jpg,?v=1532468528",
       "id": 3
     },
     {
       "name": "Hooded Villian",
       "brand": "John Elliot Co",
-      "type": "Jacket/Coat",
-      "color": "Floral",
+      "type": "jacket/coat",
+      "color": "floral",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/HOODED_VILLAIN_PEARL_06_1000x.jpg?v=1532469782,jpg,?v=1532469782",
       "id": 4
     },
     {
       "name": "Curve U-Neck",
       "brand": "John Elliot Co",
-      "type": "Top",
-      "color": "Grey",
+      "type": "top",
+      "color": "grey",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/CURVE_U-NECK_GREY_05_1000x.jpg?v=1472513741,jpg,?v=1472513741",
       "id": 5
     },
     {
       "name": "Thumper Jacket",
       "brand": "John Elliot Co",
-      "type": "Jacket/Coat",
-      "color": "Black",
+      "type": "jacket/coat",
+      "color": "black",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THUMPER_JACKET_TYPE_III_WASHED_BLACK_05_1000x.jpg?v=1533941993,jpg,?v=1533941993",
       "id": 6
     },
     {
       "name": "Yuji Riders Jacket",
       "brand": "John Elliot Co",
-      "type": "Jacket/Coat",
-      "color": "Black",
+      "type": "jacket/coat",
+      "color": "black",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/BLACKMEANS_YUJI_RIDERS_JACKET_05_1000x.jpg?v=1532469926,jpg,?v=1532469926",
       "id": 7
     },
     {
       "name": "Straight Hem Button Up ",
       "brand": "John Elliot Co",
-      "type": "Top",
-      "color": "Blue",
+      "type": "top",
+      "color": "blue",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/STRAIGHT_HEM_BUTTON_UP_GREEN_NAVY_05_1000x.jpg?v=1535689114,jpg,?v=1535689114",
       "id": 8
     },
     {
       "name": "Herring Bone Top Coat",
       "brand": "John Elliot Co",
-      "type": "Jacket/Coat",
-      "color": "Grey",
+      "type": "jacket/coat",
+      "color": "grey",
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/WOOL_TOPCOAT_HERRINGBONE_05_1000x.jpg?v=1539046322,jpg,?v=1539046322",
-      "weatherType": "Rain",
+      "weatherType": "rain",
       "id": 9
     }
   ]

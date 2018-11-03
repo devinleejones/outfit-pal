@@ -60,29 +60,29 @@ export default class AddClothingArticle extends Component {
             <FormGroup>
               <Label for="inputType">Type</Label>
               <Input type="select" name="type" id="type">
-                <option>Hat</option>
-                <option>Jacket/Coat</option>
-                <option>Top</option>
-                <option>Bottom</option>
-                <option>Shoes</option>
-                <option>Jewelry</option>
-                <option>Accessories</option>
+                <option value="hat">Hat</option>
+                <option value="jacket/coat">Jacket/Coat</option>
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+                <option value="shoes">Shoes</option>
+                <option value="jewelry">Jewelry</option>
+                <option value="accessories">Accessories</option>
               </Input>
             </FormGroup>
             <FormGroup>
               <Label for="inputColor">Color</Label>
               <Input type="select" name="color" id="color">
-                <option>Black</option>
-                <option>White</option>
-                <option>Grey</option>
-                <option>Brown</option>
-                <option>Floral</option>
-                <option>Red</option>
-                <option>Blue</option>
-                <option>Green</option>
-                <option>Yellow</option>
-                <option>Orange</option>
-                <option>Purple</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+                <option value="grey">Grey</option>
+                <option value="brown">Brown</option>
+                <option value="floral">Floral</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+                <option value="orange">Orange</option>
+                <option value="purple">Purple</option>
               </Input>
             </FormGroup>
             <FormGroup>
@@ -97,9 +97,9 @@ export default class AddClothingArticle extends Component {
             <FormGroup>
               <Label for="inputWeather">Weather Type</Label>
               <Input type="select" name="weatherType" id="weather">
-                <option>Clear</option>
-                <option>Clouds</option>
-                <option>Rain</option>
+                <option value="clear">Clear</option>
+                <option value="clouds">Clouds</option>
+                <option value="rain">Rain</option>
               </Input>
             </FormGroup>
             <Button className="btn btn-dark">Add</Button>
