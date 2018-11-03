@@ -28,5 +28,5 @@ Run the application
 npm run watch
 ```
 Accessing OpenWeatherMap API-
-click the shield icon to the right of the URL address bar
+click the shield icon to the right of the URL address bar then
 click load unsafe scripts(API data does not load securely when application starts)
