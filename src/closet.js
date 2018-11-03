@@ -68,7 +68,6 @@ class Closet extends Component {
   }
 
   render() {
-    console.log(this.state.filterBy)
     const { classes } = this.props
     const clothing = this.props.clothing.filter(article => {
       if (!this.state.filterBy.property) {
