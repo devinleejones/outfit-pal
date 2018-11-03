@@ -18,7 +18,7 @@ export default class App extends Component {
   }
 
   addClothingArticle(clothing) {
-    fetch('http://localhost:3000/clothing', {
+    fetch('/clothing', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -54,7 +54,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/clothing')
+    fetch('/clothing')
       .then(res => res.json())
       .then(clothing => this.setState({ clothing }))
     window.addEventListener('hashchange', () => {
