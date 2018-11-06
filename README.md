@@ -29,7 +29,7 @@ Run the application
 npm run watch
 ```
 ### Accessing OpenWeatherMap API-
-click the shield icon to the right of the URL address bar then
+Click the shield icon to the right of the URL address bar then
 click load unsafe scripts(API data does not load into application upon start, you need to load scripts in order for it to load)
 #### [LiveDemo](https://outfit-pal.herokuapp.com/)
 
