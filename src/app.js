@@ -63,9 +63,7 @@ export default class App extends Component {
         view: { path }
       })
     })
-    fetch(
-      'http://api.openweathermap.org/data/2.5/forecast?zip=92618&units=imperial&appid=d073dfb1703b47ce33c493182f9cacb9'
-    )
+    fetch('/weather', { method: 'GET' })
       .then(result => result.json())
       .then(data => {
         this.setState({
