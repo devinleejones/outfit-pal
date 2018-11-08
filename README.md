@@ -1,6 +1,8 @@
 # OutfitPal
 A web application for fashionistas who want to plan their weekly outfits based on the weather
 
+#### [LiveDemo](https://outfit-pal.herokuapp.com/)
+
 # Technologies
 - JavaScript
 - React.js
@@ -28,10 +30,6 @@ Run the application
 ```
 npm run watch
 ```
-### Accessing OpenWeatherMap API-
-Click the shield icon to the right of the URL address bar then
-click load unsafe scripts(API data does not load into application upon start, you need to load scripts in order for it to load)
-#### [LiveDemo](https://outfit-pal.herokuapp.com/)
 
 # Features:
 
