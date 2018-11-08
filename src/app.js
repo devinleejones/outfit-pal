@@ -15,6 +15,7 @@ export default class App extends Component {
       clothing: []
     }
     this.addClothingArticle = this.addClothingArticle.bind(this)
+    this.deleteClothingArticle = this.deleteClothingArticle.bind(this)
   }
 
   addClothingArticle(clothing) {
@@ -33,10 +34,29 @@ export default class App extends Component {
       .catch(err => console.log(err))
   }
 
+  deleteClothingArticle(event) {
+    const { clothing } = this.state
+    let articleId = event.target.closest('[id]').id
+    articleId = parseInt(articleId, 10)
+    const index = clothing.findIndex(article => article.id === articleId)
+    fetch(`/clothing/${articleId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(() => {
+        const before = clothing.slice(0, index)
+        const after = clothing.slice(index + 1)
+        this.setState({ clothing: [...before, ...after] })
+      })
+  }
+
   renderView() {
     const { path } = this.state.view
     const { days, clothing } = this.state
-    const { addClothingArticle } = this
+    const { addClothingArticle, deleteClothingArticle } = this
     switch (path) {
       default:
         return (
@@ -49,7 +69,7 @@ export default class App extends Component {
       case 'add':
         return <AddClothingArticle addClothingArticle={addClothingArticle} />
       case 'closet':
-        return <Closet clothing={clothing} />
+        return <Closet clothing={clothing} deleteClothingArticle={deleteClothingArticle} />
     }
   }
 
