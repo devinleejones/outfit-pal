@@ -346,7 +346,7 @@ class Closet extends Component {
                     }}
                     actionIcon={
                       <IconButton>
-                        <DeleteOutlinedIcon className={classes.icon} />
+                        <DeleteOutlinedIcon id={image.id} onClick={this.props.deleteClothingArticle} className={classes.icon} />
                       </IconButton>
                     }
                   />
