@@ -9,6 +9,8 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import IconButton from '@material-ui/core/IconButton'
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state'
 
 const styles = theme => ({
@@ -29,6 +31,9 @@ const styles = theme => ({
   titleBar: {
     background:
       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)'
+  },
+  icon: {
+    color: 'white'
   }
 })
 
@@ -332,13 +337,18 @@ class Closet extends Component {
             <GridList className={classes.gridList} cellHeight={600} cols={4.5}>
               {clothing.map((image, index) => (
                 <GridListTile key={index}>
-                  <img src={image.image} alt={image.name} />
+                  <img src={image.image} alt={image.name} style={style.img}/>
                   <GridListTileBar
                     title={image.name}
                     classes={{
                       root: classes.titleBar,
                       title: classes.title
                     }}
+                    actionIcon={
+                      <IconButton>
+                        <DeleteOutlinedIcon id={image.id} onClick={this.props.deleteClothingArticle} className={classes.icon} />
+                      </IconButton>
+                    }
                   />
                 </GridListTile>
               ))}
