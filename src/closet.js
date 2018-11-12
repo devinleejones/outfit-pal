@@ -51,6 +51,9 @@ const style = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  button: {
+    marginRight: '.5rem'
   }
 }
 
@@ -93,6 +96,7 @@ class Closet extends Component {
                   <Button
                     color="inherit"
                     variant="contained"
+                    style={style.button}
                     {...bindTrigger(popupState)}>
                     Brand
                   </Button>
@@ -116,6 +120,7 @@ class Closet extends Component {
                   <Button
                     color="inherit"
                     variant="contained"
+                    style={style.button}
                     {...bindTrigger(popupState)}>
                     Type
                   </Button>
@@ -193,6 +198,7 @@ class Closet extends Component {
                   <Button
                     color="inherit"
                     variant="contained"
+                    style={style.button}
                     {...bindTrigger(popupState)}>
                     Color
                   </Button>
@@ -337,7 +343,7 @@ class Closet extends Component {
             <GridList className={classes.gridList} cellHeight={600} cols={4.5}>
               {clothing.map((image, index) => (
                 <GridListTile key={index}>
-                  <img src={image.image} alt={image.name} style={style.img}/>
+                  <img src={image.image} alt={image.name} style={style.img} />
                   <GridListTileBar
                     title={image.name}
                     classes={{
@@ -346,7 +352,11 @@ class Closet extends Component {
                     }}
                     actionIcon={
                       <IconButton>
-                        <DeleteOutlinedIcon id={image.id} onClick={this.props.deleteClothingArticle} className={classes.icon} />
+                        <DeleteOutlinedIcon
+                          id={image.id}
+                          onClick={this.props.deleteClothingArticle}
+                          className={classes.icon}
+                        />
                       </IconButton>
                     }
                   />
