@@ -8,10 +8,10 @@ import Closet from './closet'
 export default class App extends Component {
   constructor(props) {
     super(props)
-    const { path } = hash.parse(location.hash)
+    const { path, params } = hash.parse(location.hash)
     this.state = {
       days: [],
-      view: { path },
+      view: { path, params },
       clothing: []
     }
     this.addClothingArticle = this.addClothingArticle.bind(this)
@@ -69,7 +69,12 @@ export default class App extends Component {
       case 'add':
         return <AddClothingArticle addClothingArticle={addClothingArticle} />
       case 'closet':
-        return <Closet clothing={clothing} deleteClothingArticle={deleteClothingArticle} />
+        return (
+          <Closet
+            clothing={clothing}
+            deleteClothingArticle={deleteClothingArticle}
+          />
+        )
     }
   }
 
@@ -78,9 +83,9 @@ export default class App extends Component {
       .then(res => res.json())
       .then(clothing => this.setState({ clothing }))
     window.addEventListener('hashchange', () => {
-      const { path } = hash.parse(location.hash)
+      const { path, params } = hash.parse(location.hash)
       this.setState({
-        view: { path }
+        view: { path, params }
       })
     })
     fetch('/weather', { method: 'GET' })
@@ -91,27 +96,32 @@ export default class App extends Component {
             {
               condition: data.list[0].weather[0].main,
               temperature: data.list[0].main.temp,
-              date: data.list[0].dt_txt
+              date: data.list[0].dt_txt,
+              id: 1
             },
             {
               condition: data.list[7].weather[0].main,
               temperature: data.list[7].main.temp,
-              date: data.list[7].dt_txt
+              date: data.list[7].dt_txt,
+              id: 2
             },
             {
               condition: data.list[15].weather[0].main,
               temperature: data.list[15].main.temp,
-              date: data.list[15].dt_txt
+              date: data.list[15].dt_txt,
+              id: 3
             },
             {
               condition: data.list[23].weather[0].main,
               temperature: data.list[23].main.temp,
-              date: data.list[23].dt_txt
+              date: data.list[23].dt_txt,
+              id: 4
             },
             {
               condition: data.list[31].weather[0].main,
               temperature: data.list[31].main.temp,
-              date: data.list[31].dt_txt
+              date: data.list[31].dt_txt,
+              id: 5
             }
           ]
         })
