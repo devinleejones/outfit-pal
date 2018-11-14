@@ -11,8 +11,8 @@ const styles = {
     fontFamily: 'Montserrat, sans-serif',
     position: 'relative',
     maxWidth: 800,
-    maxHeight: 400,
     marginTop: '2rem',
+    marginBottom: '2rem',
     height: '40vw',
     margin: '0 auto'
   },
@@ -21,7 +21,8 @@ const styles = {
     textAlign: 'center'
   },
   box: {
-    height: '5vw'
+    textAlign: 'center',
+    alignItems: 'center'
   },
   condition: {
     position: 'absolute',
@@ -60,7 +61,6 @@ class DailyFit extends Component {
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title}>{"Today's Fit"}</Typography>
-          <div className={classes.box} />
           <Typography className={classes.condition} component="p">
             <i className={handleIcon()} /> {day.condition}
             <br />

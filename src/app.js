@@ -4,6 +4,7 @@ import hash from './hash'
 import Navbar from './navBar'
 import AddClothingArticle from './addClothingArticle'
 import Closet from './closet'
+import DailyFit from './dailyFit'
 
 export default class App extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class App extends Component {
     }
     this.addClothingArticle = this.addClothingArticle.bind(this)
     this.deleteClothingArticle = this.deleteClothingArticle.bind(this)
+    this.filterDays = this.filterDays.bind(this)
   }
 
   addClothingArticle(clothing) {
@@ -66,6 +68,8 @@ export default class App extends Component {
         )
       case 'home':
         return <Home days={days} />
+      case 'todaysfit':
+        return <DailyFit day={this.filterDays() || []} />
       case 'add':
         return <AddClothingArticle addClothingArticle={addClothingArticle} />
       case 'closet':
@@ -78,6 +82,12 @@ export default class App extends Component {
     }
   }
 
+  filterDays() {
+    const selectedDay = this.state.days.filter(day => {
+      return day.id === parseInt(this.state.view.params.closetId, 10)
+    })
+    return selectedDay[0]
+  }
   componentDidMount() {
     fetch('/clothing')
       .then(res => res.json())
