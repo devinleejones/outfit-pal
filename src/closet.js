@@ -84,7 +84,7 @@ class Closet extends Component {
       return article[this.state.filterBy.property] === this.state.filterBy.value
     })
     return (
-      <Card style={style.card} className="container-fluid">
+      <Card style={style.card}>
         <CardContent>
           <h1 style={style.h1} className="text-center mb-4 mt-2">
             My Closet
