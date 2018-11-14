@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
+import Closet from './closet'
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
 const styles = {
@@ -47,9 +48,6 @@ const style = {
 class DailyFit extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      day: []
-    }
     this.handleIcon = this.handleIcon.bind(this)
   }
   handleIcon() {
@@ -68,22 +66,28 @@ class DailyFit extends Component {
     const { day } = this.props
     const { handleIcon } = this
     return (
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography className={classes.title}>{"Today's Fit"}</Typography>
-          <a href="#home">
-            <i
-              style={style.back}
-              className="far fa-arrow-alt-circle-left fa-lg"
-            />
-          </a>
-          <Typography className={classes.condition} component="p">
-            <i className={handleIcon()} /> {day.condition}
-            <br />
-            {day.temperature + '°F'}
-          </Typography>
-        </CardContent>
-      </Card>
+      <Fragment>
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography className={classes.title}>{"Today's Fit"}</Typography>
+            <a href="#home">
+              <i
+                style={style.back}
+                className="far fa-arrow-alt-circle-left fa-lg"
+              />
+            </a>
+            <Typography className={classes.condition} component="p">
+              <i className={handleIcon()} /> {day.condition}
+              <br />
+              {day.temperature + '°F'}
+            </Typography>
+          </CardContent>
+        </Card>
+        <Closet
+          clothing={this.props.clothing}
+          deleteClothingArticle={this.props.deleteClothingArticle}
+        />
+      </Fragment>
     )
   }
 }
