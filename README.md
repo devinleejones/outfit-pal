@@ -56,3 +56,7 @@ npm run watch
 **5. User can delete an article of clothing from their closet**
 
 ![User-can-delete-an-article-of-clothing-from-their-closet](https://user-images.githubusercontent.com/38872859/48172425-b268bf80-e2b4-11e8-85c6-49fbbe5d3869.gif)
+
+**5. User can click and view a specific closet card in their weekly closet**
+
+![User-can-click-and-view-a-specific-closet-card-in-their-weekly-closet](https://user-images.githubusercontent.com/38872859/48452551-6f9b6180-e764-11e8-9fa5-e8b629e002b8.gif)
