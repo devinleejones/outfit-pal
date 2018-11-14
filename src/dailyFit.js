@@ -34,6 +34,16 @@ const styles = {
   }
 }
 
+const style = {
+  back: {
+    position: 'absolute',
+    bottom: '1.5rem',
+    left: '1.5rem',
+    cursor: 'pointer',
+    color: 'black'
+  }
+}
+
 class DailyFit extends Component {
   constructor(props) {
     super(props)
@@ -61,6 +71,12 @@ class DailyFit extends Component {
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title}>{"Today's Fit"}</Typography>
+          <a href="#home">
+            <i
+              style={style.back}
+              className="far fa-arrow-alt-circle-left fa-lg"
+            />
+          </a>
           <Typography className={classes.condition} component="p">
             <i className={handleIcon()} /> {day.condition}
             <br />
