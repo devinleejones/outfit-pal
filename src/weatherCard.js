@@ -5,14 +5,15 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import fecha from 'fecha'
+import Button from '@material-ui/core/Button'
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
-const styles = {
+const styles = theme => ({
   card: {
     fontFamily: 'Montserrat, sans-serif',
     position: 'relative',
     maxWidth: 400,
-    height: '40vw'
+    height: '30vw'
   },
   title: {
     fontSize: 24,
@@ -25,8 +26,17 @@ const styles = {
     position: 'absolute',
     bottom: '1rem',
     right: '1rem'
+  },
+  button: {
+    margin: theme.spacing.unit,
+    position: 'absolute',
+    bottom: '.5rem',
+    left: '.5rem',
+    cursor: 'pointer',
+    color: 'black',
+    fontWeight: 'bold'
   }
-}
+})
 
 class WeatherCard extends Component {
   constructor(props) {
@@ -56,6 +66,13 @@ class WeatherCard extends Component {
             {fecha.format(new Date(day.date), 'dddd MMMM Do, YYYY')}
           </Typography>
           <div className={classes.box} />
+          <Button
+            href={`#todaysfit?closetId=${day.id}`}
+            variant="outlined"
+            color="secondary"
+            className={classes.button}>
+            Add a Fit
+          </Button>
           <Typography className={classes.condition} component="p">
             <i className={handleIcon()} /> {day.condition}
             <br />
