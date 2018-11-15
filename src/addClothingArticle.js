@@ -9,6 +9,13 @@ const styles = {
     width: '90%',
     marginTop: '4rem',
     marginBottom: '4rem'
+  },
+  button: {
+    border: '1px solid red',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    backgroundColor: 'white',
+    color: 'black'
   }
 }
 
@@ -102,7 +109,9 @@ export default class AddClothingArticle extends Component {
                 <option value="rain">Rain</option>
               </Input>
             </FormGroup>
-            <Button className="btn btn-dark">Add</Button>
+            <Button style={styles.button} className="btn btn-dark">
+              Add
+            </Button>
           </Form>
         </CardContent>
       </Card>
