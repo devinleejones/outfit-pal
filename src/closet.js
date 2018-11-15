@@ -9,8 +9,6 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import IconButton from '@material-ui/core/IconButton'
-import AddIcon from '@material-ui/icons/Add'
 import DeleteIcon from '@material-ui/icons/Delete'
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state'
 
@@ -354,24 +352,15 @@ class Closet extends Component {
                       title: classes.title
                     }}
                     actionIcon={
-                      <IconButton>
-                        <Button
-                          variant="fab"
-                          color="secondary"
-                          aria-label="Add"
-                          className={classes.button}>
-                          <AddIcon />
-                        </Button>
-                        <Button
-                          variant="fab"
-                          color="secondary"
-                          aria-label="Delete"
-                          className={classes.button}
-                          id={image.id}
-                          onClick={this.props.deleteClothingArticle}>
-                          <DeleteIcon />
-                        </Button>
-                      </IconButton>
+                      <Button
+                        variant="fab"
+                        color="secondary"
+                        aria-label="Delete"
+                        className={classes.button}
+                        id={image.id}
+                        onClick={this.props.deleteClothingArticle}>
+                        <DeleteIcon />
+                      </Button>
                     }
                   />
                 </GridListTile>

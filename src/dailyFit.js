@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
 import GridListTileBar from '@material-ui/core/GridListTileBar'
-import Closet from './closet'
+import DailyFitCloset from './dailyFitCloset'
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true
 
 const styles = theme => ({
@@ -82,6 +82,15 @@ class DailyFit extends Component {
     }
     this.handleIcon = this.handleIcon.bind(this)
     this.closetState = this.closetState.bind(this)
+    this.addToCloset = this.addToCloset.bind(this)
+  }
+
+  addToCloset(id) {
+    const { clothing } = this.props
+    // const clothingCopy = clothing.slice()
+    // console.log(clothingCopy)
+    const closetCopy = clothing.filter(article => article.id === id)
+    this.setState({ closet: closetCopy })
   }
 
   closetState() {
@@ -134,7 +143,7 @@ class DailyFit extends Component {
           <CardContent>
             <Typography className={classes.header}>{"Today's Fit"}</Typography>
             <Card style={style.carousel} className="d-flex">
-              <GridList className={classes.gridList} cellHeight={400} cols={3}>
+              <GridList className={classes.gridList} cellHeight={400} cols={2}>
                 {closetState()}
               </GridList>
             </Card>
@@ -151,9 +160,10 @@ class DailyFit extends Component {
             </Typography>
           </CardContent>
         </Card>
-        <Closet
+        <DailyFitCloset
           clothing={this.props.clothing}
           deleteClothingArticle={this.props.deleteClothingArticle}
+          addClothingArticle={this.addToCloset}
         />
       </Fragment>
     )
