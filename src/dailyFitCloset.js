@@ -10,7 +10,6 @@ import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import AddIcon from '@material-ui/icons/Add'
-import DeleteIcon from '@material-ui/icons/Delete'
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state'
 
 const styles = theme => ({
@@ -353,27 +352,14 @@ class DailyFitCloset extends Component {
                       title: classes.title
                     }}
                     actionIcon={
-                      <div>
-                        <Button
-                          variant="fab"
-                          color="secondary"
-                          aria-label="Add"
-                          onClick={() =>
-                            this.props.addClothingArticle(image.id)
-                          }
-                          className={classes.button}>
-                          <AddIcon />
-                        </Button>
-                        <Button
-                          variant="fab"
-                          color="secondary"
-                          aria-label="Delete"
-                          className={classes.button}
-                          id={image.id}
-                          onClick={this.props.deleteClothingArticle}>
-                          <DeleteIcon />
-                        </Button>
-                      </div>
+                      <Button
+                        variant="fab"
+                        color="secondary"
+                        aria-label="Add"
+                        onClick={() => this.props.addClothingArticle(image.id)}
+                        className={classes.button}>
+                        <AddIcon />
+                      </Button>
                     }
                   />
                 </GridListTile>
