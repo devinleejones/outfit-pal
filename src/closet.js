@@ -340,7 +340,7 @@ class Closet extends Component {
             </PopupState>
           </div>
           <Card style={style.carousel} className="container-fluid">
-            <GridList className={classes.gridList} cellHeight={600} cols={4.5}>
+            <GridList className={classes.gridList} cellHeight={600} cols={2}>
               {clothing.map((image, index) => (
                 <GridListTile key={index}>
                   <img src={image.image} alt={image.name} style={style.img} />
