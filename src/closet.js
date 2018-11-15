@@ -10,7 +10,8 @@ import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import IconButton from '@material-ui/core/IconButton'
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
+import AddIcon from '@material-ui/icons/Add'
+import DeleteIcon from '@material-ui/icons/Delete'
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state'
 
 const styles = theme => ({
@@ -32,8 +33,10 @@ const styles = theme => ({
     background:
       'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)'
   },
-  icon: {
-    color: 'white'
+  button: {
+    marginRight: '4px',
+    maxWidth: '35px',
+    maxHeight: '10px'
   }
 })
 
@@ -352,11 +355,22 @@ class Closet extends Component {
                     }}
                     actionIcon={
                       <IconButton>
-                        <DeleteOutlinedIcon
+                        <Button
+                          variant="fab"
+                          color="secondary"
+                          aria-label="Add"
+                          className={classes.button}>
+                          <AddIcon />
+                        </Button>
+                        <Button
+                          variant="fab"
+                          color="secondary"
+                          aria-label="Delete"
+                          className={classes.button}
                           id={image.id}
-                          onClick={this.props.deleteClothingArticle}
-                          className={classes.icon}
-                        />
+                          onClick={this.props.deleteClothingArticle}>
+                          <DeleteIcon />
+                        </Button>
                       </IconButton>
                     }
                   />

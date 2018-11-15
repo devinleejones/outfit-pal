@@ -92,9 +92,7 @@ class DailyFit extends Component {
         <Typography
           className="align-items-center d-flex justify-content-center"
           style={style.message}>
-          {
-            'Your closet is empty, plese drag and drop articles from your closet below'
-          }
+          {'Your closet is empty, plese add articles from your closet below'}
         </Typography>
       )
     }
