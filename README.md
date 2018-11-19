@@ -39,7 +39,7 @@ npm run watch
 
 **2. User can add an article of clothing to their closet by tag categories**
 
-![User-can-add-an-article-of-clothing-to-their-closet-by-tag-categories](https://user-images.githubusercontent.com/38872859/48095068-a1db1b00-e1c8-11e8-971f-70990a340cd5.gif)
+![User-can-add-an-article-of-clothing-to-their-closet-by-tag-categories](https://user-images.githubusercontent.com/38872859/48732029-5d517580-ebf3-11e8-9f31-fbd41a8bf92c.gif)
 
 **3. User can view their entire closet**
 
