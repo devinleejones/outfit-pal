@@ -89,6 +89,7 @@ class DailyFit extends Component {
     const { clothing } = this.props
     const { params } = this.props
     const closet = clothing.filter(article => article.id === id)
+    // const closetCopy = Object.assign([], closet)
     console.log(closet)
     const closetObject = Object.assign({ params }, closet[0])
     console.log(closetObject)
@@ -148,10 +149,14 @@ class DailyFit extends Component {
   }
 
   componentDidMount() {
+    const { params } = this.props
     fetch('/closet')
       .then(res => res.json())
       .then(closet => {
-        this.setState({ closet })
+        const closetOne = closet.filter(closet => {
+          return closet.params.closetId === params.closetId
+        })
+        this.setState({ closet: closetOne })
       })
   }
 
