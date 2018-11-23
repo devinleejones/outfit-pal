@@ -71,7 +71,7 @@ class WeatherCard extends Component {
             variant="outlined"
             color="secondary"
             className={classes.button}>
-            Add a Fit
+            Add/Edit a Fit
           </Button>
           <Typography className={classes.condition} component="p">
             <i className={handleIcon()} /> {day.condition}
