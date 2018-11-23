@@ -72,6 +72,98 @@
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/WOOL_TOPCOAT_HERRINGBONE_05_1000x.jpg?v=1539046322,jpg,?v=1539046322",
       "weatherType": "rain",
       "id": 9
+    },
+    {
+      "name": "Sail Pullover",
+      "brand": "John Elliot Co",
+      "type": "top",
+      "color": "brown",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/BLACKMEANS_SAIL_PULLOVER_01_2000x.jpg?v=1538690022,jpg,?v=1538690022",
+      "weatherType": "clear",
+      "id": 10
+    },
+    {
+      "name": "Sly Straight Hem",
+      "brand": "John Elliot Co",
+      "type": "top",
+      "color": "brown",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/SLY_STRAIGHT_HEM_DUST_04_2000x.jpg?v=1541731792",
+      "weatherType": "clear",
+      "id": 11
+    },
+    {
+      "name": "The Cast 2 Skittles",
+      "brand": "John Elliot Co",
+      "type": "bottom",
+      "color": "white",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THE_CAST_2_SKITTLES_07_2000x.jpg?v=1528163534,jpg,?v=1528163534",
+      "weatherType": "clear",
+      "id": 12
+    },
+    {
+      "name": "The Cast 2 Raw Grey",
+      "brand": "John Elliot Co",
+      "type": "bottom",
+      "color": "grey",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THE_CAST_2_RAW_GREY_06_2000x.jpg?v=1532470936,jpg,?v=1532470936",
+      "weatherType": "clear",
+      "id": 13
+    },
+    {
+      "name": "The Cast 2 Obsidian",
+      "brand": "John Elliot Co",
+      "type": "bottom",
+      "color": "black",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THE_CAST_2_OBSIDIAN_05_2000x.jpg?v=1532393744,jpg,?v=1532393744",
+      "weatherType": "clear",
+      "id": 14
+    }
+  ],
+  "closet": [
+    {
+      "params": {
+        "closetId": "1"
+      },
+      "name": "Hooded Villian",
+      "brand": "John Elliot Co",
+      "type": "jacket/coat",
+      "color": "black",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/HOODED_VILLAIN_BLACK_05_1000x.jpg?v=1532469700,jpg,?v=1532469700",
+      "id": 1
+    },
+    {
+      "params": {
+        "closetId": "1"
+      },
+      "name": "Thumper Jacket",
+      "brand": "John Elliot Co",
+      "type": "jacket/coat",
+      "color": "blue",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THUMPER_JACKET_TYPE_III_INDIGO_05_1000x.jpg?v=1533942005,jpg,?v=1533942005",
+      "id": 2
+    },
+    {
+      "params": {
+        "closetId": "1"
+      },
+      "name": "The Cast 2 Skittles",
+      "brand": "John Elliot Co",
+      "type": "bottom",
+      "color": "white",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THE_CAST_2_SKITTLES_07_2000x.jpg?v=1528163534,jpg,?v=1528163534",
+      "weatherType": "clear",
+      "id": 12
+    },
+    {
+      "params": {
+        "closetId": "2"
+      },
+      "name": "Hooded Villian",
+      "brand": "John Elliot Co",
+      "type": "jacket/coat",
+      "color": "floral",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/HOODED_VILLAIN_PEARL_06_1000x.jpg?v=1532469782,jpg,?v=1532469782",
+      "id": 4
     }
   ]
 }

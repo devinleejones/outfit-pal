@@ -9,7 +9,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import DeleteIcon from '@material-ui/icons/Delete'
+import AddIcon from '@material-ui/icons/Add'
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state'
 
 const styles = theme => ({
@@ -58,7 +58,7 @@ const style = {
   }
 }
 
-class Closet extends Component {
+class DailyFitCloset extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -355,11 +355,10 @@ class Closet extends Component {
                       <Button
                         variant="fab"
                         color="secondary"
-                        aria-label="Delete"
-                        className={classes.button}
-                        id={image.id}
-                        onClick={this.props.deleteClothingArticle}>
-                        <DeleteIcon />
+                        aria-label="Add"
+                        onClick={() => this.props.addClothingArticle(image.id)}
+                        className={classes.button}>
+                        <AddIcon />
                       </Button>
                     }
                   />
@@ -373,8 +372,8 @@ class Closet extends Component {
   }
 }
 
-Closet.propTypes = {
+DailyFitCloset.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Closet)
+export default withStyles(styles)(DailyFitCloset)

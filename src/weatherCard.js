@@ -24,6 +24,11 @@ const styles = theme => ({
   },
   condition: {
     position: 'absolute',
+    bottom: '2rem',
+    right: '1rem'
+  },
+  temp: {
+    position: 'absolute',
     bottom: '1rem',
     right: '1rem'
   },
@@ -71,12 +76,13 @@ class WeatherCard extends Component {
             variant="outlined"
             color="secondary"
             className={classes.button}>
-            Add a Fit
+            Add/Edit a Fit
           </Button>
           <Typography className={classes.condition} component="p">
             <i className={handleIcon()} /> {day.condition}
-            <br />
-            {day.temperature + '°F'}
+          </Typography>
+          <Typography className={classes.temp}>
+            {Math.round(day.temperature) + '°F'}
           </Typography>
         </CardContent>
       </Card>
