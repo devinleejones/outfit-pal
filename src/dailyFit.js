@@ -29,6 +29,11 @@ const styles = theme => ({
   },
   condition: {
     position: 'absolute',
+    bottom: '2rem',
+    right: '1rem'
+  },
+  temp: {
+    position: 'absolute',
     bottom: '1rem',
     right: '1rem'
   },
@@ -89,10 +94,7 @@ class DailyFit extends Component {
     const { clothing } = this.props
     const { params } = this.props
     const closet = clothing.filter(article => article.id === id)
-    // const closetCopy = Object.assign([], closet)
-    console.log(closet)
     const closetObject = Object.assign({ params }, closet[0])
-    console.log(closetObject)
     fetch('/closet', {
       method: 'POST',
       headers: {
@@ -103,7 +105,9 @@ class DailyFit extends Component {
     })
       .then(response => response.json())
       .then(data => {
-        this.setState({ closet: [...this.state.closet, data] })
+        const before = this.state.closet.slice(0, closet)
+        const after = this.state.closet.slice(closet + 1)
+        this.setState({ closet: [...before, data, ...after] })
       })
       .catch(err => console.log(err))
   }
@@ -183,8 +187,9 @@ class DailyFit extends Component {
             </a>
             <Typography className={classes.condition} component="p">
               <i className={handleIcon()} /> {day.condition}
-              <br />
-              {day.temperature + '°F'}
+            </Typography>
+            <Typography className={classes.temp}>
+              {Math.round(day.temperature) + '°F'}
             </Typography>
           </CardContent>
         </Card>

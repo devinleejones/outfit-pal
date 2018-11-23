@@ -90,6 +90,33 @@
       "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/SLY_STRAIGHT_HEM_DUST_04_2000x.jpg?v=1541731792",
       "weatherType": "clear",
       "id": 11
+    },
+    {
+      "name": "The Cast 2 Skittles",
+      "brand": "John Elliot Co",
+      "type": "bottom",
+      "color": "white",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THE_CAST_2_SKITTLES_07_2000x.jpg?v=1528163534,jpg,?v=1528163534",
+      "weatherType": "clear",
+      "id": 12
+    },
+    {
+      "name": "The Cast 2 Raw Grey",
+      "brand": "John Elliot Co",
+      "type": "bottom",
+      "color": "grey",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THE_CAST_2_RAW_GREY_06_2000x.jpg?v=1532470936,jpg,?v=1532470936",
+      "weatherType": "clear",
+      "id": 13
+    },
+    {
+      "name": "The Cast 2 Obsidian",
+      "brand": "John Elliot Co",
+      "type": "bottom",
+      "color": "black",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THE_CAST_2_OBSIDIAN_05_2000x.jpg?v=1532393744,jpg,?v=1532393744",
+      "weatherType": "clear",
+      "id": 14
     }
   ],
   "closet": [
@@ -106,7 +133,7 @@
     },
     {
       "params": {
-        "closetId": "2"
+        "closetId": "1"
       },
       "name": "Thumper Jacket",
       "brand": "John Elliot Co",
@@ -117,25 +144,26 @@
     },
     {
       "params": {
-        "closetId": "3"
+        "closetId": "1"
       },
-      "name": "Curve U-Neck",
+      "name": "The Cast 2 Skittles",
       "brand": "John Elliot Co",
-      "type": "top",
-      "color": "grey",
-      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/CURVE_U-NECK_GREY_05_1000x.jpg?v=1472513741,jpg,?v=1472513741",
-      "id": 5
+      "type": "bottom",
+      "color": "white",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/THE_CAST_2_SKITTLES_07_2000x.jpg?v=1528163534,jpg,?v=1528163534",
+      "weatherType": "clear",
+      "id": 12
     },
     {
       "params": {
         "closetId": "2"
       },
-      "name": "Anti Expo Tee ",
+      "name": "Hooded Villian",
       "brand": "John Elliot Co",
-      "type": "top",
-      "color": "grey",
-      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/ANTI_EXPO_TEE_GREY_CROP_1000x.jpg?v=1532468528,jpg,?v=1532468528",
-      "id": 3
+      "type": "jacket/coat",
+      "color": "floral",
+      "image": "https://cdn.shopify.com/s/files/1/0259/3835/products/HOODED_VILLAIN_PEARL_06_1000x.jpg?v=1532469782,jpg,?v=1532469782",
+      "id": 4
     }
   ]
 }

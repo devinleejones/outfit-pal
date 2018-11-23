@@ -116,27 +116,27 @@ export default class App extends Component {
               id: 1
             },
             {
-              condition: data.list[7].weather[0].main,
-              temperature: data.list[7].main.temp,
-              date: data.list[7].dt_txt,
+              condition: data.list[8].weather[0].main,
+              temperature: data.list[8].main.temp,
+              date: data.list[8].dt_txt,
               id: 2
             },
             {
-              condition: data.list[15].weather[0].main,
-              temperature: data.list[15].main.temp,
-              date: data.list[15].dt_txt,
+              condition: data.list[16].weather[0].main,
+              temperature: data.list[16].main.temp,
+              date: data.list[16].dt_txt,
               id: 3
             },
             {
-              condition: data.list[23].weather[0].main,
-              temperature: data.list[23].main.temp,
-              date: data.list[23].dt_txt,
+              condition: data.list[24].weather[0].main,
+              temperature: data.list[24].main.temp,
+              date: data.list[24].dt_txt,
               id: 4
             },
             {
-              condition: data.list[31].weather[0].main,
-              temperature: data.list[31].main.temp,
-              date: data.list[31].dt_txt,
+              condition: data.list[32].weather[0].main,
+              temperature: data.list[32].main.temp,
+              date: data.list[32].dt_txt,
               id: 5
             }
           ]
