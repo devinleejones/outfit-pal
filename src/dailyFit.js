@@ -87,9 +87,10 @@ class DailyFit extends Component {
 
   addToCloset(id) {
     const { clothing } = this.props
+    const { params } = this.props
     const closet = clothing.filter(article => article.id === id)
     console.log(closet)
-    const closetObject = Object.assign({}, closet[0])
+    const closetObject = Object.assign({ params }, closet[0])
     console.log(closetObject)
     fetch('/closet', {
       method: 'POST',
