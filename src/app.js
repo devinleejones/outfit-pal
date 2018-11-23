@@ -56,7 +56,7 @@ export default class App extends Component {
   }
 
   renderView() {
-    const { path } = this.state.view
+    const { path, params } = this.state.view
     const { days, clothing } = this.state
     const { addClothingArticle, deleteClothingArticle } = this
     switch (path) {
@@ -69,7 +69,13 @@ export default class App extends Component {
       case 'home':
         return <Home days={days} />
       case 'todaysfit':
-        return <DailyFit clothing={clothing} day={this.filterDays() || []} />
+        return (
+          <DailyFit
+            params={params}
+            clothing={clothing}
+            day={this.filterDays() || []}
+          />
+        )
       case 'add':
         return <AddClothingArticle addClothingArticle={addClothingArticle} />
       case 'closet':

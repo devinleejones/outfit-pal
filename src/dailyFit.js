@@ -87,10 +87,23 @@ class DailyFit extends Component {
 
   addToCloset(id) {
     const { clothing } = this.props
-    // const clothingCopy = clothing.slice()
-    // console.log(clothingCopy)
-    const closetCopy = clothing.filter(article => article.id === id)
-    this.setState({ closet: closetCopy })
+    const closet = clothing.filter(article => article.id === id)
+    console.log(closet)
+    const closetObject = Object.assign({}, closet[0])
+    console.log(closetObject)
+    fetch('/closet', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(closetObject)
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ closet: [...this.state.closet, data] })
+      })
+      .catch(err => console.log(err))
   }
 
   closetState() {
@@ -132,6 +145,15 @@ class DailyFit extends Component {
         return 'fas fa-umbrella'
     }
   }
+
+  componentDidMount() {
+    fetch('/closet')
+      .then(res => res.json())
+      .then(closet => {
+        this.setState({ closet })
+      })
+  }
+
   render() {
     const { classes } = this.props
     const { day } = this.props
@@ -162,7 +184,6 @@ class DailyFit extends Component {
         </Card>
         <DailyFitCloset
           clothing={this.props.clothing}
-          deleteClothingArticle={this.props.deleteClothingArticle}
           addClothingArticle={this.addToCloset}
         />
       </Fragment>
