@@ -60,3 +60,7 @@ npm run watch
 **7. User can click and view a specific closet card in their weekly closet**
 
 ![User-can-click-and-view-a-specific-closet-card-in-their-weekly-closet](https://user-images.githubusercontent.com/38872859/48452551-6f9b6180-e764-11e8-9fa5-e8b629e002b8.gif)
+
+**8. User can create a fit for a specific day within their closet**
+
+![outfitpal-can create a fit for a specific day within their closet](https://user-images.githubusercontent.com/38872859/48961414-19c77600-ef29-11e8-8b31-a3d965fb01ba.gif)
