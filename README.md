@@ -11,7 +11,7 @@ A web application for fashionistas who want to plan their weekly outfits based o
 - JSON.server
 - OpenWeatherMap API
 - HTML5
-- CSSS3
+- CSS3
 - BootStrap
 - Material UI
 
